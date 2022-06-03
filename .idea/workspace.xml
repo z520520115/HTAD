@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/preprocessing/image_merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/image_merge.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000018.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000018.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000039.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000039.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000040.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000040.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000050.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/000050.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000003_130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000003_135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000003_140.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000003_145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000003_150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000018_109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000018_114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000018_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000018_128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000018_135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000039_14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000039_18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000039_22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000039_26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000039_30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000040_40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000040_45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000040_50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000040_55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/000040_60.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/111.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/113.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/115.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/116.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/117.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/118.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/119.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/120.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/122.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/124.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/126.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/132.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/134.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/136.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/138.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/139.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/140.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/141.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/142.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/train_ex/149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000003_136.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000003_142.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000003_148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000018_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000018_127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000018_133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000039_19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000039_24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000039_29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000040_47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000040_53.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/images_ex/val_ex/000040_59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000003_130.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000003_135.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000003_140.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000003_145.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000003_150.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000018_109.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000018_114.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000018_121.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000018_128.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000018_135.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000039_14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000039_18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000039_22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000039_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000039_30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000040_40.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000040_45.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000040_50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000040_55.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/000040_60.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/train/labels_train.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000003_136.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000003_142.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000003_148.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000018_121.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000018_127.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000018_133.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000039_19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000039_24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000039_29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000040_47.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000040_53.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/000040_59.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/labels_ex/val/labels_val.zip" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2A2ozmnEF2B80FWgjoFofJiYlcq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Task-GAIL" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="" />
+      <created>1654217306909</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654217306909</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
