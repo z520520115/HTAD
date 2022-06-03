@@ -1,0 +1,11 @@
+train: C:/Users/YIHANG/PycharmProjects/HTAD_models/simple_dataset/images/train/  # train images (relative to 'path') 128 images
+val: C:/Users/YIHANG/PycharmProjects/HTAD_models/simple_dataset/images/val/  # val images (relative to 'path') 128 images
+test:  # test images (optional)
+
+# Classes
+nc: 2  # number of classes
+names: ['car', 'pedestrian']  # class names
+
+
+# Downloacsyd script/URL (optional)
+download: https://ultralytics.com/assets/coco128.zip
