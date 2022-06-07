@@ -4,7 +4,6 @@ import torch.nn.functional as F
 import numpy as np
 import copy
 
-
 class Config(object):
 
     """配置参数"""
@@ -38,10 +37,6 @@ class Config(object):
         self.last_hidden = 512
         self.num_head = 5
         self.num_encoder = 2
-
-
-'''Attention Is All You Need'''
-
 
 class Model(nn.Module):
     def __init__(self, config):

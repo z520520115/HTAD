@@ -2,8 +2,9 @@ import torch
 import torch.nn as tnn
 import torchvision.datasets as dsets
 import torchvision.transforms as transforms
+from torchsummary import summary
 
-BATCH_SIZE = 10
+BATCH_SIZE = 2
 LEARNING_RATE = 0.01
 EPOCH = 50
 N_CLASSES = 25
@@ -84,6 +85,7 @@ class VGG16(tnn.Module):
 vgg16 = VGG16(n_classes=N_CLASSES)
 # vgg16.cuda()
 vgg16.to(device)
+summary(vgg16, (3, 224, 224))
 
 # Loss, Optimizer & Scheduler
 cost = tnn.CrossEntropyLoss()
