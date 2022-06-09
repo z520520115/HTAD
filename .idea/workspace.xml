@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transformer/transformer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000003.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000003.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000018.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000018.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000039.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000039.txt" afterDir="false" />

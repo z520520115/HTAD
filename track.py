@@ -234,12 +234,14 @@ def detect(opt):
                             bbox_w = bbox_right - bbox_left
                             bbox_h = bbox_down - bbox_top
                             # Write MOT compliant results to file
+
                             # with open(txt_path + '.txt', 'a') as f:
-                            #     f.write(('%g ' * 10 + '\n') % (frame_idx + 1, id, bbox_left,  # MOT format
-                            #                                    bbox_top, bbox_w, bbox_h, -1, -1, -1, i))
+                            #     f.write(('%g ' * 2 + '\n') % (frame_idx, id, bbox_left,  # MOT format
+                            #                                    bbox_top, bbox_right, bbox_down, -1, -1, -1, i))
                             with open(txt_path + '.txt', 'a') as f:
-                                f.write(('%g ' * 10 + '\n') % (frame_idx, id, bbox_left,  # MOT format
-                                                               bbox_top, bbox_right, bbox_down, -1, -1, -1, i))
+                                f.write(("{'frame_idx':%g}," + "{'id':%g}," + "{'coordinate':" + "[" + "%g," * 3 + "%g]" + "}" + '\n')
+                                        % (frame_idx, id, bbox_left, bbox_top, bbox_right, bbox_down))
+
 
                         if save_vid or save_crop or show_vid:  # Add bbox to image
                             c = int(cls)  # integer class
