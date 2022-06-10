@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import os
-
+import ast
 file_root = '../simple_dataset/images/train/000003/'
 file_list = os.listdir(file_root)
 save_out = '../simple_dataset/trajectory_mask/'
@@ -11,18 +11,21 @@ tra_l1 = []
 tra_l2 = []
 
 with open(tra_txt_path, 'r', encoding='UTF-8') as f:
-    tra_list = f.readlines()
-tra_list = [c.strip() for c in tra_list]
-# tra_list =
+    for line in f:
+        tra_dic = ast.literal_eval(line)
+        for k, v in tra_dic.items():
+            if k == '2':
+                print(v)
 
-print(tra_list[80][1:3])
-for i in range(len(tra_list)):
-    if tra_list[i][1:3] is '2':
-        tra_l1.append(tra_list[i][4:])
-    elif tra_list[i][1:3].find('5'):
-        tra_l2.append(tra_list[i][4:])
-print(tra_l1)
-print(tra_l2)
+    # for k,v in tra_dic.items():
+    #     for k1,v1 in v.items():
+    #         print(v1)
+
+
+tra_id1 = "2"
+tra_id2 = "5"
+
+# values = [val[tra_id1] for key, val in tra_list.items() if ]
 
 for img_name in file_list:
     if img_name.endswith('.jpg'):
