@@ -239,8 +239,8 @@ def detect(opt):
                             #     f.write(('%g ' * 2 + '\n') % (frame_idx, id, bbox_left,  # MOT format
                             #                                    bbox_top, bbox_right, bbox_down, -1, -1, -1, i))
                             with open(txt_path + '.txt', 'a') as f:
-                                f.write(('{' + '"frame_idx": %g, ' + '"%g": ' + '[' + '%g, ' * 3 + '%g]' + '}' + '\n')
-                                        % (frame_idx, id, bbox_left, bbox_top, bbox_right, bbox_down))
+                                f.write(('{' + '"frame_idx": %g, ' + '"%g": ' + '[' + '%g, ' + '%g]' + '}' + '\n')
+                                        % (frame_idx, id, x_center, y_center))
 
 
                         if save_vid or save_crop or show_vid:  # Add bbox to image

@@ -4,13 +4,10 @@
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market101/tracks/000003.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1012/tracks/000003.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1013/tracks/000003.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1014/tracks/000003.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000003.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000003.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000018.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000039.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000040.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000050.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask/mask1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/track.py" beforeDir="false" afterPath="$PROJECT_DIR$/track.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
