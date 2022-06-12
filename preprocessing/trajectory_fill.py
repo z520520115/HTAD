@@ -4,7 +4,7 @@ import os
 import ast
 
 save_out = '../simple_dataset/trajectory_mask/'
-tra_txt_path = os.path.expanduser('../runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000050.txt')
+tra_txt_path = os.path.expanduser('../runs/track/yolov5/runs/train/exp5/weights/best_osnet_x0_25_market1501/tracks/000050_0.txt')
 img_path = '../simple_dataset/images/train/000050/000050_19.jpg'
 
 tra_list = []
@@ -12,6 +12,7 @@ mask_list = []
 tra_id1 = '1'
 tra_id2 = '2'
 
+# 打开轨迹txt文件将选定帧坐标存入列表
 with open(tra_txt_path, 'r', encoding='UTF-8') as f:
     for line in f:
         tra_dic = ast.literal_eval(line)
@@ -21,6 +22,7 @@ with open(tra_txt_path, 'r', encoding='UTF-8') as f:
             if k == tra_id2:
                 tra_list.append(v)
 
+# 创建轨迹mask, 一个坐标为一个半径为5的mask
 imgs = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
 tra_mask = np.zeros(imgs.shape[:2], dtype=np.uint8)
 for i in tra_list:
@@ -28,5 +30,5 @@ for i in tra_list:
     mask_list.append(tra_mask)
     for k in mask_list:
         tra_image = cv2.add(imgs, np.zeros(imgs.shape[:2], dtype=np.uint8), mask=k)
-        cv2.imwrite(r'C:\Users\YIHANG\PycharmProjects\HTAD\simple_dataset\trajectory_mask/000050_mask.jpg', k)
+        cv2.imwrite(r'C:\Users\YIHANG\PycharmProjects\HTAD\simple_dataset\trajectory_mask/000050_0_mask.jpg', k)
 
