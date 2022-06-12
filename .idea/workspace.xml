@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask/000003_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask/000018_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask/000039_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask/000040_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask/000050_mask.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/transformer/transformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer/transformer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vgg/vgg16.py" beforeDir="false" afterPath="$PROJECT_DIR$/vgg/vgg16.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,8 +99,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.transformer" />
-        <item itemvalue="Python.trajectory_fill" />
         <item itemvalue="Python.vgg16" />
+        <item itemvalue="Python.trajectory_fill" />
       </list>
     </recent_temporary>
   </component>
@@ -131,26 +126,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/transformer/transformer.py</url>
-          <line>127</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/transformer/transformer.py</url>
-          <line>57</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/transformer/transformer.py</url>
-          <line>95</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

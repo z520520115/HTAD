@@ -1,11 +1,9 @@
 from __future__ import print_function
-
 import glob
 from itertools import chain
 import os
 import random
 import zipfile
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -20,14 +18,12 @@ from torch.optim.lr_scheduler import StepLR
 from torch.utils.data import DataLoader, Dataset
 from torchvision import datasets, transforms
 from tqdm.notebook import tqdm
-
 from vit_pytorch.efficient import ViT
-
-# print(f"Torch: {torch.__version__}")
+from torchsummary import summary
 
 # Training settings
 batch_size = 1
-epochs = 20
+epochs = 10
 lr = 3e-5
 gamma = 0.7
 seed = 42
@@ -68,7 +64,7 @@ test_transforms = transforms.Compose(
     [transforms.Resize(256), transforms.CenterCrop(224),transforms.ToTensor(),])
 
 # Load Datesets
-class CatsDogsDataset(Dataset):
+class Tra_mask_Dataset(Dataset):
     def __init__(self, file_list, transform=None):
         self.file_list = file_list
         self.transform = transform
@@ -87,9 +83,9 @@ class CatsDogsDataset(Dataset):
 
         return img_transformed, label
 
-train_data = CatsDogsDataset(train_list, transform=train_transforms)
-valid_data = CatsDogsDataset(valid_list, transform=test_transforms)
-test_data = CatsDogsDataset(test_list, transform=test_transforms)
+train_data = Tra_mask_Dataset(train_list, transform=train_transforms)
+valid_data = Tra_mask_Dataset(valid_list, transform=test_transforms)
+test_data = Tra_mask_Dataset(test_list, transform=test_transforms)
 
 train_loader = DataLoader(dataset = train_data, batch_size=batch_size, shuffle=True )
 valid_loader = DataLoader(dataset = valid_data, batch_size=batch_size, shuffle=True)
@@ -99,22 +95,19 @@ test_loader = DataLoader(dataset = test_data, batch_size=batch_size, shuffle=Tru
 # Linformer
 efficient_transformer = Linformer(
     dim=128,
-    seq_len=49+1,  # 7x7 patches + 1 cls-token
+    seq_len=197,  # 7x7 patches + 1 cls-token
     depth=12,
     heads=8,
     k=64
 )
 
 # Visual Transformer
-model = ViT(dim=128, image_size=224, patch_size=32, num_classes=2, transformer=efficient_transformer, channels=3).to(device)
-
+model = ViT(dim=128, image_size=224, patch_size=16, num_classes=2, transformer=efficient_transformer, channels=1).to(device)
+summary(model, (1, 224, 224))
 #Training
-# loss function
-criterion = nn.CrossEntropyLoss()
-# optimizer
-optimizer = optim.Adam(model.parameters(), lr=lr)
-# scheduler
-scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
+criterion = nn.CrossEntropyLoss() # loss function
+optimizer = optim.Adam(model.parameters(), lr=lr) # optimizer
+scheduler = StepLR(optimizer, step_size=1, gamma=gamma) # scheduler
 
 for epoch in range(epochs):
     epoch_loss = 0

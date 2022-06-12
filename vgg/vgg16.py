@@ -6,7 +6,7 @@ from torchsummary import summary
 
 BATCH_SIZE = 2
 LEARNING_RATE = 0.01
-EPOCH = 50
+EPOCH = 10
 N_CLASSES = 25
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
