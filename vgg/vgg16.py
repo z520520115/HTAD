@@ -4,9 +4,9 @@ import torchvision.datasets as dsets
 import torchvision.transforms as transforms
 from torchsummary import summary
 
-BATCH_SIZE = 2
+BATCH_SIZE = 100
 LEARNING_RATE = 0.01
-EPOCH = 10
+EPOCH = 1
 N_CLASSES = 25
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -85,7 +85,7 @@ class VGG16(tnn.Module):
 vgg16 = VGG16(n_classes=N_CLASSES)
 # vgg16.cuda()
 vgg16.to(device)
-summary(vgg16, (3, 224, 224))
+summary(vgg16, (3, 224, 224), batch_size=100)
 
 # Loss, Optimizer & Scheduler
 cost = tnn.CrossEntropyLoss()
@@ -130,4 +130,4 @@ for images, labels in testLoader:
     print("avg acc: %f" % (100 * correct / total))
 
 # Save the Trained Model
-torch.save(vgg16.state_dict(), 'cnn.pkl')
+torch.save(vgg16.state_dict(), 'vgg16.pth')

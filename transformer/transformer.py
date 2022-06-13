@@ -103,7 +103,7 @@ efficient_transformer = Linformer(
 
 # Visual Transformer
 model = ViT(dim=128, image_size=224, patch_size=16, num_classes=2, transformer=efficient_transformer, channels=1).to(device)
-summary(model, (1, 224, 224))
+summary(model, (1, 224, 224), batch_size=1)
 #Training
 criterion = nn.CrossEntropyLoss() # loss function
 optimizer = optim.Adam(model.parameters(), lr=lr) # optimizer
