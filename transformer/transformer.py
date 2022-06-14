@@ -101,9 +101,203 @@ efficient_transformer = Linformer(
     k=64
 )
 
-# Visual Transformer
+
 model = ViT(dim=128, image_size=224, patch_size=16, num_classes=2, transformer=efficient_transformer, channels=1).to(device)
-summary(model, (1, 224, 224), batch_size=1)
+# summary(model, (1, 224, 224), batch_size=1)
+
+# Visual Transformer
+# ----------------------------------------------------------------
+#         Layer (type)               Output Shape         Param #
+# ================================================================
+#          Rearrange-1              [1, 196, 256]               0
+#             Linear-2              [1, 196, 128]          32,896
+#          LayerNorm-3              [1, 197, 128]             256
+#             Linear-4              [1, 197, 128]          16,384
+#             Linear-5              [1, 197, 128]          16,384
+#             Linear-6              [1, 197, 128]          16,384
+#            Dropout-7            [1, 8, 197, 64]               0
+#             Linear-8              [1, 197, 128]          16,512
+# LinformerSelfAttention-9              [1, 197, 128]               0
+#           PreNorm-10              [1, 197, 128]               0
+#         LayerNorm-11              [1, 197, 128]             256
+#            Linear-12              [1, 197, 512]          66,048
+#              GELU-13              [1, 197, 512]               0
+#           Dropout-14              [1, 197, 512]               0
+#            Linear-15              [1, 197, 128]          65,664
+#       FeedForward-16              [1, 197, 128]               0
+#           PreNorm-17              [1, 197, 128]               0
+#         LayerNorm-18              [1, 197, 128]             256
+#            Linear-19              [1, 197, 128]          16,384
+#            Linear-20              [1, 197, 128]          16,384
+#            Linear-21              [1, 197, 128]          16,384
+#           Dropout-22            [1, 8, 197, 64]               0
+#            Linear-23              [1, 197, 128]          16,512
+# LinformerSelfAttention-24              [1, 197, 128]               0
+#           PreNorm-25              [1, 197, 128]               0
+#         LayerNorm-26              [1, 197, 128]             256
+#            Linear-27              [1, 197, 512]          66,048
+#              GELU-28              [1, 197, 512]               0
+#           Dropout-29              [1, 197, 512]               0
+#            Linear-30              [1, 197, 128]          65,664
+#       FeedForward-31              [1, 197, 128]               0
+#           PreNorm-32              [1, 197, 128]               0
+#         LayerNorm-33              [1, 197, 128]             256
+#            Linear-34              [1, 197, 128]          16,384
+#            Linear-35              [1, 197, 128]          16,384
+#            Linear-36              [1, 197, 128]          16,384
+#           Dropout-37            [1, 8, 197, 64]               0
+#            Linear-38              [1, 197, 128]          16,512
+# LinformerSelfAttention-39              [1, 197, 128]               0
+#           PreNorm-40              [1, 197, 128]               0
+#         LayerNorm-41              [1, 197, 128]             256
+#            Linear-42              [1, 197, 512]          66,048
+#              GELU-43              [1, 197, 512]               0
+#           Dropout-44              [1, 197, 512]               0
+#            Linear-45              [1, 197, 128]          65,664
+#       FeedForward-46              [1, 197, 128]               0
+#           PreNorm-47              [1, 197, 128]               0
+#         LayerNorm-48              [1, 197, 128]             256
+#            Linear-49              [1, 197, 128]          16,384
+#            Linear-50              [1, 197, 128]          16,384
+#            Linear-51              [1, 197, 128]          16,384
+#           Dropout-52            [1, 8, 197, 64]               0
+#            Linear-53              [1, 197, 128]          16,512
+# LinformerSelfAttention-54              [1, 197, 128]               0
+#           PreNorm-55              [1, 197, 128]               0
+#         LayerNorm-56              [1, 197, 128]             256
+#            Linear-57              [1, 197, 512]          66,048
+#              GELU-58              [1, 197, 512]               0
+#           Dropout-59              [1, 197, 512]               0
+#            Linear-60              [1, 197, 128]          65,664
+#       FeedForward-61              [1, 197, 128]               0
+#           PreNorm-62              [1, 197, 128]               0
+#         LayerNorm-63              [1, 197, 128]             256
+#            Linear-64              [1, 197, 128]          16,384
+#            Linear-65              [1, 197, 128]          16,384
+#            Linear-66              [1, 197, 128]          16,384
+#           Dropout-67            [1, 8, 197, 64]               0
+#            Linear-68              [1, 197, 128]          16,512
+# LinformerSelfAttention-69              [1, 197, 128]               0
+#           PreNorm-70              [1, 197, 128]               0
+#         LayerNorm-71              [1, 197, 128]             256
+#            Linear-72              [1, 197, 512]          66,048
+#              GELU-73              [1, 197, 512]               0
+#           Dropout-74              [1, 197, 512]               0
+#            Linear-75              [1, 197, 128]          65,664
+#       FeedForward-76              [1, 197, 128]               0
+#           PreNorm-77              [1, 197, 128]               0
+#         LayerNorm-78              [1, 197, 128]             256
+#            Linear-79              [1, 197, 128]          16,384
+#            Linear-80              [1, 197, 128]          16,384
+#            Linear-81              [1, 197, 128]          16,384
+#           Dropout-82            [1, 8, 197, 64]               0
+#            Linear-83              [1, 197, 128]          16,512
+# LinformerSelfAttention-84              [1, 197, 128]               0
+#           PreNorm-85              [1, 197, 128]               0
+#         LayerNorm-86              [1, 197, 128]             256
+#            Linear-87              [1, 197, 512]          66,048
+#              GELU-88              [1, 197, 512]               0
+#           Dropout-89              [1, 197, 512]               0
+#            Linear-90              [1, 197, 128]          65,664
+#       FeedForward-91              [1, 197, 128]               0
+#           PreNorm-92              [1, 197, 128]               0
+#         LayerNorm-93              [1, 197, 128]             256
+#            Linear-94              [1, 197, 128]          16,384
+#            Linear-95              [1, 197, 128]          16,384
+#            Linear-96              [1, 197, 128]          16,384
+#           Dropout-97            [1, 8, 197, 64]               0
+#            Linear-98              [1, 197, 128]          16,512
+# LinformerSelfAttention-99              [1, 197, 128]               0
+#          PreNorm-100              [1, 197, 128]               0
+#        LayerNorm-101              [1, 197, 128]             256
+#           Linear-102              [1, 197, 512]          66,048
+#             GELU-103              [1, 197, 512]               0
+#          Dropout-104              [1, 197, 512]               0
+#           Linear-105              [1, 197, 128]          65,664
+#      FeedForward-106              [1, 197, 128]               0
+#          PreNorm-107              [1, 197, 128]               0
+#        LayerNorm-108              [1, 197, 128]             256
+#           Linear-109              [1, 197, 128]          16,384
+#           Linear-110              [1, 197, 128]          16,384
+#           Linear-111              [1, 197, 128]          16,384
+#          Dropout-112            [1, 8, 197, 64]               0
+#           Linear-113              [1, 197, 128]          16,512
+# LinformerSelfAttention-114              [1, 197, 128]               0
+#          PreNorm-115              [1, 197, 128]               0
+#        LayerNorm-116              [1, 197, 128]             256
+#           Linear-117              [1, 197, 512]          66,048
+#             GELU-118              [1, 197, 512]               0
+#          Dropout-119              [1, 197, 512]               0
+#           Linear-120              [1, 197, 128]          65,664
+#      FeedForward-121              [1, 197, 128]               0
+#          PreNorm-122              [1, 197, 128]               0
+#        LayerNorm-123              [1, 197, 128]             256
+#           Linear-124              [1, 197, 128]          16,384
+#           Linear-125              [1, 197, 128]          16,384
+#           Linear-126              [1, 197, 128]          16,384
+#          Dropout-127            [1, 8, 197, 64]               0
+#           Linear-128              [1, 197, 128]          16,512
+# LinformerSelfAttention-129              [1, 197, 128]               0
+#          PreNorm-130              [1, 197, 128]               0
+#        LayerNorm-131              [1, 197, 128]             256
+#           Linear-132              [1, 197, 512]          66,048
+#             GELU-133              [1, 197, 512]               0
+#          Dropout-134              [1, 197, 512]               0
+#           Linear-135              [1, 197, 128]          65,664
+#      FeedForward-136              [1, 197, 128]               0
+#          PreNorm-137              [1, 197, 128]               0
+#        LayerNorm-138              [1, 197, 128]             256
+#           Linear-139              [1, 197, 128]          16,384
+#           Linear-140              [1, 197, 128]          16,384
+#           Linear-141              [1, 197, 128]          16,384
+#          Dropout-142            [1, 8, 197, 64]               0
+#           Linear-143              [1, 197, 128]          16,512
+# LinformerSelfAttention-144              [1, 197, 128]               0
+#          PreNorm-145              [1, 197, 128]               0
+#        LayerNorm-146              [1, 197, 128]             256
+#           Linear-147              [1, 197, 512]          66,048
+#             GELU-148              [1, 197, 512]               0
+#          Dropout-149              [1, 197, 512]               0
+#           Linear-150              [1, 197, 128]          65,664
+#      FeedForward-151              [1, 197, 128]               0
+#          PreNorm-152              [1, 197, 128]               0
+#        LayerNorm-153              [1, 197, 128]             256
+#           Linear-154              [1, 197, 128]          16,384
+#           Linear-155              [1, 197, 128]          16,384
+#           Linear-156              [1, 197, 128]          16,384
+#          Dropout-157            [1, 8, 197, 64]               0
+#           Linear-158              [1, 197, 128]          16,512
+# LinformerSelfAttention-159              [1, 197, 128]               0
+#          PreNorm-160              [1, 197, 128]               0
+#        LayerNorm-161              [1, 197, 128]             256
+#           Linear-162              [1, 197, 512]          66,048
+#             GELU-163              [1, 197, 512]               0
+#          Dropout-164              [1, 197, 512]               0
+#           Linear-165              [1, 197, 128]          65,664
+#      FeedForward-166              [1, 197, 128]               0
+#          PreNorm-167              [1, 197, 128]               0
+#        LayerNorm-168              [1, 197, 128]             256
+#           Linear-169              [1, 197, 128]          16,384
+#           Linear-170              [1, 197, 128]          16,384
+#           Linear-171              [1, 197, 128]          16,384
+#          Dropout-172            [1, 8, 197, 64]               0
+#           Linear-173              [1, 197, 128]          16,512
+# LinformerSelfAttention-174              [1, 197, 128]               0
+#          PreNorm-175              [1, 197, 128]               0
+#        LayerNorm-176              [1, 197, 128]             256
+#           Linear-177              [1, 197, 512]          66,048
+#             GELU-178              [1, 197, 512]               0
+#          Dropout-179              [1, 197, 512]               0
+#           Linear-180              [1, 197, 128]          65,664
+#      FeedForward-181              [1, 197, 128]               0
+#          PreNorm-182              [1, 197, 128]               0
+# SequentialSequence-183              [1, 197, 128]               0
+#        Linformer-184              [1, 197, 128]               0
+#         Identity-185                   [1, 128]               0
+#        LayerNorm-186                   [1, 128]             256
+#           Linear-187                     [1, 2]             258
+# ================================================================
+
 #Training
 criterion = nn.CrossEntropyLoss() # loss function
 optimizer = optim.Adam(model.parameters(), lr=lr) # optimizer
