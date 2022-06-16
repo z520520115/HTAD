@@ -1,17 +1,19 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torchtext
-from torchtext.legacy.datasets import Multi30k
-from torchtext.legacy.data import Field, BucketIterator
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
-import spacy
 import numpy as np
 import random
 import math
 import time
 import os
+from torch.utils.data import Dataset, DataLoader
+from torchvision import datasets
+from torchvision.io import read_image
+from torch.utils import data
+from torchvision import transforms
+from PIL import Image
 
 seed = 42
 random.seed(seed)
@@ -22,6 +24,62 @@ torch.cuda.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
 torch.backends.cudnn.deterministic = True
 
+# Trajectory Data Loading
+class tra_dataset(Dataset):
+    def __init__(self, root, all_type) -> None:
+        self.root = root
+        self.all_type = all_type
+        self.transform = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ConvertImageDtype(torch.float64),
+            # transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
+        ])
+        self.set = []
+
+        for root, dirs, files in os.walk(self.root):
+            target = root.split('\\')[-1]
+            if target in self.all_type:
+                for file in files:
+                    pic = read_image(os.path.join(root, file))
+                    pic = self.transform(pic)
+                    # print(target)
+                    if target == '0':
+                        label = torch.tensor(0)
+                    else:
+                        label = torch.tensor(1)
+                    information_1 = {
+                        'image': pic,
+                        'target': label
+                    }
+                    self.set.append(information_1)
+                    
+    def __getitem__(self, index):
+        print(self.set[index])
+        return self.set[index]
+
+    def __len__(self):
+        return len(self.set)
+
+def load_tra_datasets():
+    tra_train_root = './simple_dataset/trajectory_mask_0615/train'
+    tra_test_root = './simple_dataset/trajectory_mask_0615/test'
+
+    all_type = ["0", "1"]
+
+    training_set = tra_dataset(root = tra_train_root, all_type = all_type)
+    test_set = tra_dataset(root = tra_test_root, all_type = all_type)
+
+    train_loader = DataLoader(training_set, batch_size = 1)
+    test_loader = DataLoader(test_set, batch_size = 1)
+
+    # 查看train_loader中查看数据
+    batch = iter(train_loader)
+    images, labels = batch.next()
+    # print(images)
+
+    return  train_loader, test_loader
+
+# Transformer Class
 class PatchEmbed(nn.Module):
     def __init__(self, img_size = 224, patch_size = 16, in_c = 3, embed_dim = 768, norm_layer = None):
         super(PatchEmbed, self).__init__()
@@ -194,3 +252,4 @@ class PositionwiseFeedforwardLayer(nn.Module):
 
         return x
 
+load_tra_datasets()
