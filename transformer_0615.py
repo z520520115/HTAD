@@ -43,16 +43,18 @@ class tra_dataset(Dataset):
                     pic = read_image(os.path.join(root, file))
                     pic = self.transform(pic)
                     # print(target)
-                    if target == '0':
+                    if target == 'No Accident':
                         label = torch.tensor(0)
                     else:
                         label = torch.tensor(1)
-                    information_1 = {
+
+                    information = {
                         'image': pic,
                         'target': label
                     }
-                    self.set.append(information_1)
-                    
+
+                    self.set.append(information)
+
     def __getitem__(self, index):
         print(self.set[index])
         return self.set[index]
@@ -64,7 +66,7 @@ def load_tra_datasets():
     tra_train_root = './simple_dataset/trajectory_mask_0615/train'
     tra_test_root = './simple_dataset/trajectory_mask_0615/test'
 
-    all_type = ["0", "1"]
+    all_type = ["No Accident", "Accident"]
 
     training_set = tra_dataset(root = tra_train_root, all_type = all_type)
     test_set = tra_dataset(root = tra_test_root, all_type = all_type)
@@ -73,9 +75,62 @@ def load_tra_datasets():
     test_loader = DataLoader(test_set, batch_size = 1)
 
     # 查看train_loader中查看数据
-    batch = iter(train_loader)
-    images, labels = batch.next()
-    # print(images)
+    # i1,l1 = next(iter(train_loader))
+
+    return  train_loader, test_loader
+
+# Current_Frame Data Loading
+class cuf_dataset(Dataset):
+    def __init__(self, root, all_type) -> None:
+        self.root = root
+        self.all_type = all_type
+        self.transform = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ConvertImageDtype(torch.float64),
+            # transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
+        ])
+        self.set = []
+
+        for root, dirs, files in os.walk(self.root):
+            target = root.split('\\')[-1]
+            if target in self.all_type:
+                for file in files:
+                    pic = read_image(os.path.join(root, file))
+                    pic = self.transform(pic)
+                    # print(target)
+                    if target == '0':
+                        label = torch.tensor(0)
+                    else:
+                        label = torch.tensor(1)
+
+                    information = {
+                        'image': pic,
+                        'target': label
+                    }
+
+                    self.set.append(information)
+
+    def __getitem__(self, index):
+        print(self.set[index])
+        return self.set[index]
+
+    def __len__(self):
+        return len(self.set)
+
+def load_cuf_datasets():
+    tra_train_root = './simple_dataset/current_fream_0615/train'
+    tra_test_root = './simple_dataset/current_fream_0615/test'
+
+    all_type = ["No Accident", "Accident"]
+
+    training_set = tra_dataset(root = tra_train_root, all_type = all_type)
+    test_set = tra_dataset(root = tra_test_root, all_type = all_type)
+
+    train_loader = DataLoader(training_set, batch_size = 1)
+    test_loader = DataLoader(test_set, batch_size = 1)
+
+    # 查看train_loader中查看数据
+    # i1,l1 = next(iter(train_loader))
 
     return  train_loader, test_loader
 
@@ -253,3 +308,4 @@ class PositionwiseFeedforwardLayer(nn.Module):
         return x
 
 load_tra_datasets()
+load_cuf_datasets()

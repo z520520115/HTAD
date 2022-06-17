@@ -3,28 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/test/000050_1.Y.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/test/000050_2.N.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/test/000050_3.N.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/test/000050_4.Y.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/trajectory_mask_0615/train/000050_9.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/transformer_0615.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer_0615.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
