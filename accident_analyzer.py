@@ -31,6 +31,7 @@ def accident_area():
     return accident_area_li
 
 def accident_object():
+    print(accident_object_li)
     return accident_object_li
 
 if __name__ == '__main__':
@@ -38,4 +39,5 @@ if __name__ == '__main__':
     accident_range()
     accident_area()
     accident_object()
+
 

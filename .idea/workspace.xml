@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/accident_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/HTAD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HTAD.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_dataset/current_fream_0615/train/0/000050_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accident_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/accident_analyzer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transformer_0615.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer_0615.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vgg/feature_extract.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
-  <component name="RunManager" selected="Python.accident_analyzer">
+  <component name="RunManager" selected="Python.transformer_0615">
     <configuration name="accident_analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,8 +152,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.accident_analyzer" />
         <item itemvalue="Python.transformer_0615" />
+        <item itemvalue="Python.accident_analyzer" />
         <item itemvalue="Python.trajectory_fill" />
         <item itemvalue="Python.transformer" />
         <item itemvalue="Python.feature_extract" />
@@ -185,16 +182,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/accident_analyzer.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -110,7 +110,7 @@ class cuf_dataset(Dataset):
                     self.set.append(information)
 
     def __getitem__(self, index):
-        print(self.set[index])
+        # print(self.set[index])
         return self.set[index]
 
     def __len__(self):
@@ -128,8 +128,8 @@ def load_cuf_datasets():
     train_loader = DataLoader(training_set, batch_size = 2)
     test_loader = DataLoader(test_set, batch_size = 2)
 
-    print(len(train_loader))
-    print(len(test_loader))
+    # print(len(train_loader))
+    # print(len(test_loader))
 
     return train_loader, test_loader
 
@@ -365,32 +365,32 @@ def change_dim(pic):
     return pic.permute(1, 2, 0)
 
 def main():
-    model = VGG16(n_classes=25)
+    model1 = VGG16(n_classes=25)
     train_loader, test_loader = load_cuf_datasets()
 
-    optimizer = optim.SGD(model.parameters(), lr=1e-4, momentum=0.5)
+    optimizer = optim.SGD(model1.parameters(), lr=1e-4, momentum=0.5)
     loss_fn = nn.CrossEntropyLoss()
 
     loss_all = []
 
-    for epoch in range(100):
+    for epoch in range(2):
         print(f'\n-----------epoch {epoch}-----------')
-        loss = train(model, train_loader, optimizer, loss_fn, epoch=epoch)
+        loss = train(model1, train_loader, optimizer, loss_fn, epoch=epoch)
         loss_all.append(loss)
-        test(model, test_loader)
+        test(model1, test_loader)
 
     plt.plot(loss_all)
-    plt.savefig(f"model_weights/{model.__class__.__name__}.png")
+    plt.savefig(f"model_weights/{model1.__class__.__name__}.png")
     plt.show()
     plt.close()
 
-    torch.save(model.state_dict(), f"model_weights/{model.__class__.__name__}.pth")
+    torch.save(model1.state_dict(), f"model_weights/{model1.__class__.__name__}.pth")
     print("Saved PyTorch Model State to model.pth")
 
-    model = VGG16(n_classes=25)
-    model.load_state_dict(torch.load(f"model_weights/{model.__class__.__name__}.pth"))
+    model1 = VGG16(n_classes=25)
+    model1.load_state_dict(torch.load(f"model_weights/{model1.__class__.__name__}.pth"))
     labels = {0: 'No Accident', 1: 'Accident'}
-    model.eval()
+    model1.eval()
     plt.figure(figsize=(8, 4))
     for id, data in enumerate(test_loader):
 
@@ -405,9 +405,11 @@ def main():
 
         plt.title("image-show")
         with torch.no_grad():
-            output = nn.Softmax(dim=1)(model(image))
-
-            pred = output.argmax(dim=1).cpu().numpy()
+            vgg16_features, output = model1(image)
+            # output = nn.Softmax(dim=1)(model1(image))
+            # pred = output.argmax(dim=1).cpu().numpy()
+            output = nn.Softmax(dim=1)(output)
+            pred = output.argmax(dim=1).numpy()
 
             plt.ion()
             for i in range(1, 5):
@@ -434,7 +436,8 @@ def train(model, train_loader, optimizer, loss_fn, epoch):
             raise TypeError
         # print(target)
         optimizer.zero_grad()
-        output, x = model(image)
+
+        vgg16_features, output = model(image)
         # print(output)
 
         loss = loss_fn(output, target)
@@ -462,7 +465,7 @@ def test(model, test_loader):
             raise TypeError
 
         with torch.no_grad():
-            output = model(image)
+            vgg16_features, output = model(image)
             pred = nn.Softmax(dim=1)(output)
 
         correct += (pred.argmax(1) == target).type(torch.float).sum().item()
@@ -470,6 +473,4 @@ def test(model, test_loader):
     print(f'accurency = {correct}/{len(test_loader) * 4} = {correct / len(test_loader) / 4}')
 
 if __name__ == "__main__":
-    # load_tra_datasets()
-    # load_cuf_datasets()
     main()
