@@ -38,7 +38,9 @@ class tra_dataset(Dataset):
             if target in self.all_type:
                 for file in files:
                     pic = read_image(os.path.join(root, file))
+                    print(pic.shape, pic.ndim) # torch.Size([1, 360, 480]) 3
                     pic = self.transform(pic)
+                    print(pic.shape, pic.ndim) # torch.Size([1, 224, 224]) 3
                     # print(target)
                     if target == '0':
                         label = torch.tensor(0)
@@ -51,6 +53,7 @@ class tra_dataset(Dataset):
                     }
 
                     self.set.append(information)
+                    print(information)
 
     def __getitem__(self, index):
         print(self.set[index])
@@ -125,8 +128,8 @@ def load_cuf_datasets():
     training_set = cuf_dataset(root = tra_train_root, all_type = all_type)
     test_set = cuf_dataset(root = tra_test_root, all_type = all_type)
 
-    train_loader = DataLoader(training_set, batch_size = 2)
-    test_loader = DataLoader(test_set, batch_size = 2)
+    train_loader = DataLoader(training_set, batch_size = 5)
+    test_loader = DataLoader(test_set, batch_size = 5)
 
     # print(len(train_loader))
     # print(len(test_loader))
@@ -306,6 +309,62 @@ class PositionwiseFeedforwardLayer(nn.Module):
 
         return x
 
+class Transformer(nn.Module):
+    def __init__(self, encoder, src_pad_idx, trg_pad_idx, device):
+        super(Transformer, self).__init__()
+
+        self.encoder = encoder
+        self.src_pad_idx = src_pad_idx
+        self.trg_pad_idx = trg_pad_idx
+        self.device = device
+
+    def make_src_mask(self, src):
+        # src = [batch size, src len]
+        src_mask = (src != self.src_pad_idx).unsqueeze(1).unsqueeze(2)
+        # src_mask = [batch size, 1, 1, src len]
+
+        return src_mask
+
+    def make_trg_mask(self, trg):
+        # trg = [batch size, trg len]
+
+        trg_pad_mask = (trg != self.trg_pad_idx).unsqueeze(1).unsqueeze(2)
+
+        # trg_pad_mask = [batch size, 1, 1, trg len]
+
+        trg_len = trg.shape[1]
+
+        trg_sub_mask = torch.tril(torch.ones((trg_len, trg_len), device=self.device)).bool()
+
+        # trg_sub_mask = [trg len, trg len]
+
+        trg_mask = trg_pad_mask & trg_sub_mask
+
+        # trg_mask = [batch size, 1, trg len, trg len]
+
+        return trg_mask
+
+    def forward(self, src, trg):
+        # src = [batch size, src len]
+        # trg = [batch size, trg len]
+
+        src_mask = self.make_src_mask(src)
+        trg_mask = self.make_trg_mask(trg)
+
+        # src_mask = [batch size, 1, 1, src len]
+        # trg_mask = [batch size, 1, trg len, trg len]
+
+        enc_src = self.encoder(src, src_mask)
+
+        # enc_src = [batch size, src len, hid dim]
+
+        output, attention = self.decoder(trg, enc_src, trg_mask, src_mask)
+
+        # output = [batch size, trg len, output dim]
+        # attention = [batch size, n heads, trg len, src len]
+
+        return output, attention
+
 # CNN Module
 def conv_layer(chann_in, chann_out, k_size, p_size):
     layer = tnn.Sequential(
@@ -419,6 +478,7 @@ def main():
             plt.pause(3)
             plt.show()
 
+# Only VGG16
 def train(model, train_loader, optimizer, loss_fn, epoch):
     model.train()
 
@@ -449,6 +509,7 @@ def train(model, train_loader, optimizer, loss_fn, epoch):
     print(f'{round(loss_total, 2)} in epoch {epoch}')
     return loss_total
 
+# Only VGG16
 def test(model, test_loader):
     model.eval()
     correct = 0
@@ -473,4 +534,5 @@ def test(model, test_loader):
     print(f'accurency = {correct}/{len(test_loader) * 4} = {correct / len(test_loader) / 4}')
 
 if __name__ == "__main__":
-    main()
+    # main()
+    load_tra_datasets()

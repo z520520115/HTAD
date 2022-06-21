@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accident_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/accident_analyzer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transformer_0615.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer_0615.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vgg/feature_extract.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="feature_extract" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="osd_generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,11 +73,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/vgg" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vgg/feature_extract.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/osd_generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,10 +152,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.transformer_0615" />
+        <item itemvalue="Python.osd_generator" />
         <item itemvalue="Python.accident_analyzer" />
         <item itemvalue="Python.trajectory_fill" />
         <item itemvalue="Python.transformer" />
-        <item itemvalue="Python.feature_extract" />
       </list>
     </recent_temporary>
   </component>

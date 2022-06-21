@@ -13,8 +13,7 @@ def analyze():
     z = [255.0, 255.0, 255.0, 255.0, 255.0]
     radius = [90, 90, 90, 90, 90]
 
-    accident_objects_set = {"AC000000":["car","car"], "AC000001": ["car","car"], "AC000002": ["car","car"],
-                            "AC000003": ["car","car"], "AC000004": ["car","car"]}
+    accident_objects_set = {"AC000000":["3Dd001","3Dd001"], "AC000001": ["3Dd001","3Dd001"]}
 
     for i in range(accident_cnt):
         accident_range_li.append([accident_starting_frame[i], accident_ending_frame[i]])
