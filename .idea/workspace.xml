@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/transformer_0623.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accident_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/accident_analyzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/class.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/dev.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/embedding_SougouNews.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/embedding_Tencent.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/train.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/vocab.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/saved_dict/model.ckpt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/DPCNN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/FastText.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextCNN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextRCNN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextRNN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextRNN_Att.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/Transformer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/run.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/train_eval.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attention_mechansim/utils_fasttext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformer/transformer.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/transformer_0615.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer_0615.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,9 +63,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="Python.transformer_0615">
+  <component name="RunManager" selected="Python.transformer_vgg16">
     <configuration name="accident_analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -86,49 +108,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="trajectory_fill" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="HTAD" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/preprocessing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/trajectory_fill.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="transformer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="HTAD" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transformer" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transformer/transformer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="transformer_0615" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -140,7 +120,49 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transformer_0615.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\YIHANG\PycharmProjects\HTAD\transformer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="transformer_vgg16" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="HTAD" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\YIHANG\PycharmProjects\HTAD\transformer_vgg16.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="util" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="HTAD" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../anaconda3/envs/Project/Lib/site-packages/spacy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../anaconda3/envs/Project/Lib/site-packages/spacy/util.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,15 +173,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.transformer_0615" />
+        <item itemvalue="Python.transformer_vgg16" />
+        <item itemvalue="Python.transformer_0623" />
+        <item itemvalue="Python.util" />
         <item itemvalue="Python.osd_generator" />
         <item itemvalue="Python.accident_analyzer" />
-        <item itemvalue="Python.trajectory_fill" />
-        <item itemvalue="Python.transformer" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\YIHANG\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="" />
