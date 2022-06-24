@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/transformer_0623.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/class.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/dev.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/embedding_SougouNews.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/embedding_Tencent.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/train.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/data/vocab.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/THUCNews/saved_dict/model.ckpt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/DPCNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/FastText.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextCNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextRCNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextRNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/TextRNN_Att.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/models/Transformer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/run.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/train_eval.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attention_mechansim/utils_fasttext.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformer/transformer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformer_0615.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformer_0615.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/image_merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/image_merge.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +42,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="Python.transformer_vgg16">
-    <configuration name="accident_analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.image_merge">
+    <configuration name="image_merge" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,11 +51,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/preprocessing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/accident_analyzer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/image_merge.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -173,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.image_merge" />
         <item itemvalue="Python.transformer_vgg16" />
         <item itemvalue="Python.transformer_0623" />
         <item itemvalue="Python.util" />
         <item itemvalue="Python.osd_generator" />
-        <item itemvalue="Python.accident_analyzer" />
       </list>
     </recent_temporary>
   </component>
