@@ -52,8 +52,8 @@ def read_split_data(root: str, val_rate: float = 0.2):
                 train_images_label.append(image_class)
 
     print("{} images were found in the dataset.".format(sum(every_class_num)))
-    print("{} images for training.".format(len(train_images_path)))
-    print("{} images for validation.".format(len(val_images_path)))
+    # print("{} images for training.".format(len(train_images_path)))
+    # print("{} images for validation.".format(len(val_images_path)))
 
     plot_image = False
     if plot_image:
@@ -119,22 +119,23 @@ def train_one_epoch(model, optimizer, data_loader, device, epoch):
     optimizer.zero_grad()
 
     sample_num = 0
-    data_loader = tqdm(data_loader, file=sys.stdout)
-    for step, data in enumerate(data_loader):
-        images, labels = data
-        sample_num += images.shape[0]
+    data_iter = tqdm(data_loader, file=sys.stdout) # 进度条
 
-        pred = model(images.to(device))
+    for step, data in enumerate(data_iter):
+        tras, imgs, labels = data
+        sample_num += imgs.shape[0]
+
+        pred = model(tras, imgs).to(device)
         pred_classes = torch.max(pred, dim=1)[1]
-        accu_num += torch.eq(pred_classes, labels.to(device)).sum()
+        accu_num += torch.eq(pred_classes, labels.to(device)).sum().item()
 
         loss = loss_function(pred, labels.to(device))
         loss.backward()
         accu_loss += loss.detach()
 
         data_loader.desc = "[train epoch {}] loss: {:.3f}, acc: {:.3f}".format(epoch,
-                                                                               accu_loss.item() / (step + 1),
-                                                                               accu_num.item() / sample_num)
+                                                                                accu_loss.item() / (step + 1),
+                                                                                accu_num.item() / sample_num)
 
         if not torch.isfinite(loss):
             print('WARNING: non-finite loss, ending training ', loss)
@@ -158,10 +159,10 @@ def evaluate(model, data_loader, device, epoch):
     sample_num = 0
     data_loader = tqdm(data_loader, file=sys.stdout)
     for step, data in enumerate(data_loader):
-        images, labels = data
-        sample_num += images.shape[0]
+        tras, imgs, labels = data
+        sample_num += imgs.shape[0]
 
-        pred = model(images.to(device))
+        pred = model(tras, imgs).to(device)
         pred_classes = torch.max(pred, dim=1)[1]
         accu_num += torch.eq(pred_classes, labels.to(device)).sum()
 

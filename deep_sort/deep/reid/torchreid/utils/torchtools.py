@@ -71,7 +71,7 @@ def load_checkpoint(fpath):
         dict
 
     Examples::
-        >>> from torchreid.utils import load_checkpoint
+        >>> from torcpihreid.utils import load_checkpoint
         >>> fpath = 'log/my_model/model.pth.tar-10'
         >>> checkpoint = load_checkpoint(fpath)
     """
@@ -87,7 +87,7 @@ def load_checkpoint(fpath):
         pickle.load = partial(pickle.load, encoding="latin1")
         pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
         checkpoint = torch.load(
-            fpath, pickle_module=pickle, map_location=map_location
+            fpath, pickle_module=pickle, map_location=map_location,
         )
     except Exception:
         print('Unable to load checkpoint from "{}"'.format(fpath))

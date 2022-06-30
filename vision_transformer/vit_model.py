@@ -1,13 +1,8 @@
-"""
-original code from rwightman:
-https://github.com/rwightman/pytorch-image-models/blob/master/timm/models/vision_transformer.py
-"""
 from functools import partial
 from collections import OrderedDict
 
 import torch
 import torch.nn as nn
-
 
 def drop_path(x, drop_prob: float = 0., training: bool = False):
     """
@@ -27,7 +22,6 @@ def drop_path(x, drop_prob: float = 0., training: bool = False):
     output = x.div(keep_prob) * random_tensor
     return output
 
-
 class DropPath(nn.Module):
     """
     Drop paths (Stochastic Depth) per sample  (when applied in main path of residual blocks).
@@ -38,7 +32,6 @@ class DropPath(nn.Module):
 
     def forward(self, x):
         return drop_path(x, self.drop_prob, self.training)
-
 
 class PatchEmbed(nn.Module):
     """
@@ -66,7 +59,6 @@ class PatchEmbed(nn.Module):
         x = self.proj(x).flatten(2).transpose(1, 2)
         x = self.norm(x)
         return x
-
 
 class Attention(nn.Module):
     def __init__(self,
@@ -110,7 +102,6 @@ class Attention(nn.Module):
         x = self.proj_drop(x)
         return x
 
-
 class Mlp(nn.Module):
     """
     MLP as used in Vision Transformer, MLP-Mixer and related networks
@@ -131,7 +122,6 @@ class Mlp(nn.Module):
         x = self.fc2(x)
         x = self.drop(x)
         return x
-
 
 class Block(nn.Module):
     def __init__(self,
@@ -159,7 +149,6 @@ class Block(nn.Module):
         x = x + self.drop_path(self.attn(self.norm1(x)))
         x = x + self.drop_path(self.mlp(self.norm2(x)))
         return x
-
 
 class VisionTransformer(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_c=3, num_classes=1000,
@@ -266,6 +255,7 @@ class VisionTransformer(nn.Module):
                 return (x + x_dist) / 2
         else:
             x = self.head(x)
+        # print("Trans最后一层shape" + str(x.shape))
         return x
 
 
@@ -286,7 +276,6 @@ def _init_vit_weights(m):
         nn.init.zeros_(m.bias)
         nn.init.ones_(m.weight)
 
-
 def vit_base_patch16_224(num_classes: int = 1000):
     """
     ViT-Base model (ViT-B/16) from original paper (https://arxiv.org/abs/2010.11929).
@@ -302,7 +291,6 @@ def vit_base_patch16_224(num_classes: int = 1000):
                               representation_size=None,
                               num_classes=num_classes)
     return model
-
 
 def vit_base_patch16_224_in21k(num_classes: int = 21843, has_logits: bool = True):
     """
@@ -320,7 +308,6 @@ def vit_base_patch16_224_in21k(num_classes: int = 21843, has_logits: bool = True
                               num_classes=num_classes)
     return model
 
-
 def vit_base_patch32_224(num_classes: int = 1000):
     """
     ViT-Base model (ViT-B/32) from original paper (https://arxiv.org/abs/2010.11929).
@@ -336,7 +323,6 @@ def vit_base_patch32_224(num_classes: int = 1000):
                               representation_size=None,
                               num_classes=num_classes)
     return model
-
 
 def vit_base_patch32_224_in21k(num_classes: int = 21843, has_logits: bool = True):
     """
@@ -354,7 +340,6 @@ def vit_base_patch32_224_in21k(num_classes: int = 21843, has_logits: bool = True
                               num_classes=num_classes)
     return model
 
-
 def vit_large_patch16_224(num_classes: int = 1000):
     """
     ViT-Large model (ViT-L/16) from original paper (https://arxiv.org/abs/2010.11929).
@@ -370,7 +355,6 @@ def vit_large_patch16_224(num_classes: int = 1000):
                               representation_size=None,
                               num_classes=num_classes)
     return model
-
 
 def vit_large_patch16_224_in21k(num_classes: int = 21843, has_logits: bool = True):
     """
@@ -388,7 +372,6 @@ def vit_large_patch16_224_in21k(num_classes: int = 21843, has_logits: bool = Tru
                               num_classes=num_classes)
     return model
 
-
 def vit_large_patch32_224_in21k(num_classes: int = 21843, has_logits: bool = True):
     """
     ViT-Large model (ViT-L/32) from original paper (https://arxiv.org/abs/2010.11929).
@@ -404,7 +387,6 @@ def vit_large_patch32_224_in21k(num_classes: int = 21843, has_logits: bool = Tru
                               representation_size=1024 if has_logits else None,
                               num_classes=num_classes)
     return model
-
 
 def vit_huge_patch14_224_in21k(num_classes: int = 21843, has_logits: bool = True):
     """
