@@ -80,7 +80,8 @@ def detect(opt):
     else:  # multiple models after --yolo_model
         exp_name = "ensemble"
     exp_name = exp_name + "_" + deep_sort_model.split('/')[-1].split('.')[0]
-    save_dir = increment_path(Path(project) / exp_name, exist_ok=exist_ok)  # increment run if project name exists
+    # save_dir = increment_path(Path(project) / exp_name, exist_ok=exist_ok)  # increment run if project name exists
+    save_dir = increment_path(Path(project), exist_ok=exist_ok)  # increment run if project name exists
     (save_dir / 'tracks' if save_txt else save_dir).mkdir(parents=True, exist_ok=True)  # make dir
 
     # Load model
@@ -175,7 +176,8 @@ def detect(opt):
                     txt_file_name = p.parent.name  # get folder name containing current img
                     save_path = str(save_dir / p.parent.name)  # im.jpg, vid.mp4, ...
 
-            txt_path = str(save_dir / 'tracks' / txt_file_name)  # im.txt
+            # txt_path = str(save_dir / 'tracks' / txt_file_name)  # im.txt
+            txt_path = str(save_dir /  txt_file_name)  # im.txt
             s += '%gx%g ' % im.shape[2:]  # print string
             imc = im0.copy() if save_crop else im0  # for save_crop
 

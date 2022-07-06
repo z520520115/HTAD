@@ -1,18 +1,37 @@
 import cv2
-size = (480,360) # 这个是图片的尺寸，一定要和要用的图片size一致
-# 完成写入对象的创建，第一个参数是合成之后的视频的名称，第二个参数是可以使用的编码器
-# 第三个参数是帧率即每秒钟展示多少张图片，第四个参数是图片大小信息
-videowrite = cv2.VideoWriter(r'C:/Users/YIHANG/PycharmProjects/HTAD/simple_dataset/videos/000157.mp4'
-                             ,0x7634706d,20,size) # 20是帧数，size是图片尺寸
+import os
+
+# video_path = r'C:/Users/YIHANG/PycharmProjects/HTAD/dataset/video_frames/'
+#
+# # 计算共有多少图片
+# count = 0
+# video_frames = []
+# for root, dirs, files in os.walk(video_path, topdown=True):
+#     for i in dirs:
+#         video_frames.append(root + i + "/")
+#
+#     for file in files:
+#         ext = os.path.splitext(file)[-1].lower()
+#         if ext == '.jps':
+#             count += 1
+#             print(count)
+
+image = cv2.imread('C:/Users/YIHANG/PycharmProjects/HTAD/dataset/video_frames/000049/19.jpg')
+size = (image.shape[1], image.shape[0])
+videowrite = cv2.VideoWriter(r'C:/Users/YIHANG/PycharmProjects/HTAD/dataset/videos/000049.mp4' ,0x7634706d, 20, size)
+
+# 读取所有img存入列表
 img_array=[]
-for filename in [r'C:\Users\YIHANG\PycharmProjects\HTAD\simple_dataset\images\train\000157/000157_{0}.jpg'
-                         .format(i) for i in range(153)]: # 这个循环是为了读取所有要用的图片文件
-    img = cv2.imread(filename)
-    if img is None:
-        print(filename + " is error!")
-        continue
-    img_array.append(img)
-for i in range(153): # 把读取的图片文件写进去
+for root, dirs, files in os.walk(r'C:\Users\YIHANG\PycharmProjects\HTAD\dataset\video_frames\000049'):
+    for f in files:
+        img = cv2.imread(root + "/" + f)
+        if img is None:
+            print(files + " is error!")
+            continue
+        img_array.append(img)
+
+# 将读取的img存储为视频
+for i in range(52):
     videowrite.write(img_array[i])
 videowrite.release()
 print('end!')
