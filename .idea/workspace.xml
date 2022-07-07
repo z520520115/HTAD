@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gpu_ava.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/000003.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track/000003.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track10/000049.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track10/000049.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track2/000003.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/runs/track2/000003.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track2/000003.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runs/track2/000003.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track3/000003.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track3/000003.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track4/000003.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track4/000003.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track5/000003.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track5/000003.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track6/000049.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track6/000049.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track7/000049.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track7/000049.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track8/000049.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track8/000049.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track9/000049.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/track9/000049.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/track.py" beforeDir="false" afterPath="$PROJECT_DIR$/track.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/image_merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/image_merge.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +51,7 @@
       <recent name="C:\Users\YIHANG\PycharmProjects\HTAD\vision_transformer" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.gpu_ava">
+  <component name="RunManager" selected="Python.image_merge">
     <configuration name="gpu_ava" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,9 +159,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.image_merge" />
         <item itemvalue="Python.gpu_ava" />
         <item itemvalue="Python.trajectory_fill" />
-        <item itemvalue="Python.image_merge" />
         <item itemvalue="Python.hybrid_model" />
         <item itemvalue="Python.utils" />
       </list>
@@ -220,16 +199,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/preprocessing/image_merge.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/preprocessing/image_merge.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/preprocessing/trajectory_fill.py</url>
           <line>5</line>
