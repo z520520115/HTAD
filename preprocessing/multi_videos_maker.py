@@ -21,10 +21,29 @@ def get_num(folder):
 def get_frames(path):
     frames_array = []
     for root, dirs, files in os.walk(path):
+        files = str_to_int(files)
+        files.sort()
+        files = int_to_str(files)
         for f in files:
             img = cv2.imread(root + "/" + f)
             frames_array.append(img)
     return frames_array
+
+# 列表元素str转int
+def str_to_int(list):
+    new_list = []
+    for i in list:
+        new_list.append(int(i[:-4]))
+    list = new_list
+    return list
+
+# 列表元素str转int
+def int_to_str(list):
+    new_list = []
+    for i in list:
+        new_list.append(str(i) + ".jpg")
+    list = new_list
+    return list
 
 # 制作视频
 def get_videos(video_path, size, count, array):
@@ -34,6 +53,7 @@ def get_videos(video_path, size, count, array):
     videos.release()
     print("make " + video_path[52:62] + " successfully！")
     return videos
+
 
 video_frames = []
 frames_count = []
@@ -48,5 +68,3 @@ for idx, fra in enumerate(video_frames):
     get_videos(fra[:45] + "videos" + fra[57:-1] + ".mp4", get_size(frames_array[0]), len(frames_array), frames_array)
 
 
-
-# videowrite = cv2.VideoWriter(r'C:/Users/YIHANG/PycharmProjects/HTAD/dataset/videos/000049.mp4' ,0x7634706d, 20, size)
