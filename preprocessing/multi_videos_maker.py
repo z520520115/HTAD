@@ -54,7 +54,6 @@ def get_videos(video_path, size, count, array):
     print("make " + video_path[52:62] + " successfully！")
     return videos
 
-
 video_frames = []
 frames_count = []
 

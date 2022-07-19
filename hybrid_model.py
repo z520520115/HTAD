@@ -61,10 +61,7 @@ class VitDataSet(Dataset):
 
         return img, label
 
-    @staticmethod
     def collate_fn(batch):
-        # 官方实现的default_collate可以参考
-        # https://github.com/pytorch/pytorch/blob/67b7e751e6b5931a9f45274653f4f653a4e6cdf6/torch/utils/data/_utils/collate.py
         images, labels = tuple(zip(*batch))
 
         images = torch.stack(images, dim=0)
@@ -94,7 +91,6 @@ class VggDataSet(Dataset):
 
         return img, label
 
-    @staticmethod
     def collate_fn(batch):
         # 官方实现的default_collate可以参考
         # https://github.com/pytorch/pytorch/blob/67b7e751e6b5931a9f45274653f4f653a4e6cdf6/torch/utils/data/_utils/collate.py
@@ -158,25 +154,25 @@ def main(args):
                                   batch_size=batch_size,
                                   pin_memory=True,
                                   num_workers=nw,
-                                  collate_fn=Vit_train_dataset.collate_fn)
+                                  )#collate_fn=Vit_train_dataset.collate_fn)
 
     Vit_val_loader = DataLoader(Vit_val_dataset,
                                 batch_size=batch_size,
                                 pin_memory=True,
                                 num_workers=nw,
-                                collate_fn=Vit_val_dataset.collate_fn)
+                                )#collate_fn=Vit_val_dataset.collate_fn)
 
     Vgg_train_loader = DataLoader(Vgg_train_dataset,
                                   batch_size=batch_size,
                                   pin_memory=True,
                                   num_workers=nw,
-                                  collate_fn=Vgg_train_dataset.collate_fn)
+                                  )#collate_fn=Vgg_train_dataset.collate_fn)
 
     Vgg_val_loader = DataLoader(Vgg_val_dataset,
                                 batch_size=batch_size,
                                 pin_memory=True,
                                 num_workers=nw,
-                                collate_fn=Vgg_val_dataset.collate_fn)
+                                )#collate_fn=Vgg_val_dataset.collate_fn)
 
 
     label, imgs, tras = map(dataloader_sort, [Vgg_train_loader, Vgg_train_loader, Vit_train_loader], [1, 0, 0], [True, False, False])
@@ -196,27 +192,8 @@ def main(args):
     # VisionTransformer = create_model(num_classes=2, has_logits=False).to(device)
     model = hybrid_model(VisionTransformer, VGG16)
 
-    # if args.weights != "":
-    #     assert os.path.exists(args.weights), "weights file: '{}' not exist.".format(args.weights)
-    #     weights_dict = torch.load(args.weights, map_location=device)
-    #     # 删除不需要的权重
-    #     del_keys = ['head.weight', 'head.bias'] if model.has_logits \
-    #         else ['pre_logits.fc.weight', 'pre_logits.fc.bias', 'head.weight', 'head.bias']
-    #     for k in del_keys:
-    #         del weights_dict[k]
-    #     print(model.load_state_dict(weights_dict, strict=False))
-    #
-    # if args.freeze_layers:
-    #     for name, para in model.named_parameters():
-    #         # 除head, pre_logits外，其他权重全部冻结
-    #         if "head" not in name and "pre_logits" not in name:
-    #             para.requires_grad_(False)
-    #         else:
-    #             print("training {}".format(name))
-
     pg = [p for p in model.parameters() if p.requires_grad]
     optimizer = optim.SGD(pg, lr=args.lr, momentum=0.9, weight_decay=5E-5)
-    # Scheduler https://arxiv.org/pdf/1812.01187.pdf
     lf = lambda x: ((1 + math.cos(x * math.pi / args.epochs)) / 2) * (1 - args.lrf) + args.lrf  # cosine
     scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)
 
