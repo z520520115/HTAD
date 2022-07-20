@@ -3,9 +3,8 @@ import cv2
 import ast
 import numpy as np
 
-
 # 填写video的id_idx
-name = '000380'
+name = '001415'
 
 tra_txt_path = os.path.expanduser(r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\vid_yolov5_deepsort/'+ name +'.txt')
 img_path_all = r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\video_frames/' + name
@@ -16,10 +15,10 @@ for root, dirs, files in os.walk(img_path_all, topdown=True):
 tra_list = []
 frame_idx_l = []
 
-# 选择相应的轨迹的id编号, 缺少的可以再底下添加
-tra_id1 = '7'
-tra_id2 = '15'
-# tra_id3 = '9'
+# 选择相应的轨迹的id编号, 缺少的可以在底下添加
+tra_id1 = '1'
+tra_id2 = '3'
+# tra_id3 = '20'
 
 def get_n_channel(img):
 	if img.ndim == 2:
@@ -80,7 +79,7 @@ imgs = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
 tra_mask = np.zeros(imgs.shape[:2], dtype=np.uint8)
 for i, val in enumerate(tra_list):
     if i % 2 == 0: # 记录第一条轨迹, 用i序列筛选第一条
-        tra_mask1 = cv2.circle(tra_mask, (int(val[0]), int(val[1])), 4, (255, 255, 255), -1, cv2.LINE_AA)
+        tra_mask1 = cv2.circle(tra_mask, (int(val[0]), int(val[1])), 8, (255, 255, 255), -1, cv2.LINE_AA)
     elif i % 2 == 1 : # 记录第二条轨迹, 用i序列筛选第一条
-        tra_mask2 = cv2.circle(tra_mask, (int(val[0]), int(val[1])), 4, (255, 255, 255), -1, cv2.LINE_AA)
+        tra_mask2 = cv2.circle(tra_mask, (int(val[0]), int(val[1])), 8, (255, 255, 255), -1, cv2.LINE_AA)
         cv2.imwrite(r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\trajectory_mask/' + name + '_' + str(frame_idx_l[i]) + '.jpg', channel_1to3(tra_mask1) + channel_1to3(tra_mask2))
