@@ -3,6 +3,10 @@ import cv2
 import ast
 import numpy as np
 
+'''
+根据YOLOv5 + DeepSORT的结果视频和text文件做出相应的轨迹
+'''
+
 # 填写video的id_idx
 name = '001415'
 

@@ -1,6 +1,10 @@
 import cv2
 import os
 
+'''
+多帧转多个视频
+'''
+
 video_frames_path = r'C:/Users/YIHANG/PycharmProjects/HTAD_dataset/video_frames/'
 
 # 得到视频size

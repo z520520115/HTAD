@@ -1,6 +1,10 @@
 import os
 from shutil import copy
 
+'''
+批量移动视频帧, 原数据集为(0-52), 忽略0和52帧, 将1-25送入no_accident文件夹, 26-50送入accident文件夹
+'''
+
 path =  r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\video_frames'
 accident_path = r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\current_frame\accident/'
 no_accident_path = r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\current_frame\no_accident/'

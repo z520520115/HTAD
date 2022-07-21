@@ -1,6 +1,10 @@
 import cv2
 import os
 
+'''
+多帧转单个视频
+'''
+
 image = cv2.imread('C:/Users/YIHANG/PycharmProjects/HTAD_dataset/video_frames/000033/109.jpg')
 size = (image.shape[1], image.shape[0])
 videowrite = cv2.VideoWriter(r'C:/Users/YIHANG/PycharmProjects/HTAD_dataset/videos/000033.mp4' ,0x7634706d, 30, size)
