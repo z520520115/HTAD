@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c6fd4d-1ffc-4985-b3e4-4130f03e89f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/preprocessing/trajectory_mask_add.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/filenames_revise.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/filenames_revise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/frame_move.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/frame_move.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/multi_videos_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/multi_videos_maker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/single_video_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/single_video_maker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/trajectory_fill.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing/trajectory_mask_add.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/trajectory_mask_add.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +51,7 @@
       <recent name="C:\Users\YIHANG\PycharmProjects\HTAD\vision_transformer" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.frame_move">
+  <component name="RunManager" selected="Python.trajectory_mask_add">
     <configuration name="filenames_revise" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,7 +115,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="trajectory_fill" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="trajectory_mask_add" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HTAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -132,7 +127,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/trajectory_fill.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing/trajectory_mask_add.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.trajectory_mask_add" />
         <item itemvalue="Python.frame_move" />
         <item itemvalue="Python.filenames_revise" />
         <item itemvalue="Python.vid_to_frames" />
         <item itemvalue="Python.frame_count" />
-        <item itemvalue="Python.trajectory_fill" />
       </list>
     </recent_temporary>
   </component>
