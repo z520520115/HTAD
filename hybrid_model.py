@@ -109,9 +109,9 @@ def main(args):
     tb_writer = SummaryWriter()
 
     train_tras_path, train_tras_label, val_tras_path, val_tras_label = read_split_data(
-        r"./simple_dataset/trajectory_mask_0624")
+        r"C:/Users/YIHANG/PycharmProjects/HTAD_dataset/trajectory_mask")
     train_imgs_path, train_imgs_label, val_imgs_path, val_imgs_label = read_split_data(
-        r"./simple_dataset/current_frame_0624")
+        r"C:/Users/YIHANG/PycharmProjects/HTAD_dataset/current_frame")
 
     Vit_data_transform = {
         "train": transforms.Compose([transforms.RandomResizedCrop(224),
@@ -147,7 +147,7 @@ def main(args):
                                  transform=Vgg_data_transform["val"])
 
     batch_size = args.batch_size
-    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 8])  # number of workers
+    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 4])  # number of workers
     print('Using {} dataloader workers every process'.format(nw))
 
     Vit_train_loader = DataLoader(Vit_train_dataset,
@@ -221,7 +221,7 @@ def main(args):
         tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)
 
         # torch.save(model.state_dict(), "vision_transformer/weights/hybrid_model-{}.pth".format(epoch))
-
+        torch.save(model, "vision_transformer/weights/hybrid_model.pkl")
 def dataloader_sort(loader, index, is_label):
     if not is_label:
         return torch.from_numpy(np.array([i[index][0].numpy().tolist() for i in iter(loader)])).float()
@@ -231,13 +231,13 @@ def dataloader_sort(loader, index, is_label):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_classes', type=int, default=2)
-    parser.add_argument('--epochs', type=int, default=10)
-    parser.add_argument('--batch-size', type=int, default=4)
+    parser.add_argument('--epochs', type=int, default=500)
+    parser.add_argument('--batch-size', type=int, default=32)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--lrf', type=float, default=0.01)
 
     # 数据集所在根目录
-    parser.add_argument('--data-path', type=str, default="../simple_dataset/trajectory_mask_0624")
+    parser.add_argument('--data-path', type=str, default="")
     parser.add_argument('--model-name', default='', help='create model name')
 
     # 预训练权重路径，如果不想载入就设置为空字符

@@ -8,7 +8,7 @@ import numpy as np
 '''
 
 # 填写video的id_idx
-name = '001415'
+name = '001207'
 
 tra_txt_path = os.path.expanduser(r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\vid_yolov5_deepsort/'+ name +'.txt')
 img_path_all = r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\video_frames/' + name
@@ -21,7 +21,7 @@ frame_idx_l = []
 
 # 选择相应的轨迹的id编号, 缺少的可以在底下添加
 tra_id1 = '1'
-tra_id2 = '3'
+tra_id2 = '8'
 # tra_id3 = '20'
 
 def get_n_channel(img):

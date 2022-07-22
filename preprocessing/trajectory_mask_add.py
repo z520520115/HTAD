@@ -1,7 +1,11 @@
 import os
 from shutil import copy
 
-path = r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\trajectory_mask_backup3/'
+'''
+补充丢失的轨迹帧, 通过判断当前帧和下一帧的差值, 补充丢失的帧, 例如2.jpg, 5.jpg时 插入3.jpg, 4.jpg
+'''
+
+path = r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\trajectory_mask/'
 
 # 列表元素str转int
 def str_to_int(list):
