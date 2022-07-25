@@ -16,7 +16,7 @@ from torch.utils.data import TensorDataset, DataLoader
 from vgg16_model import VGG16
 from vision_transformer.vit_model import VisionTransformer
 from vision_transformer.vit_model import vit_base_patch16_224_in21k as create_model
-from vision_transformer.utils import read_split_data, train_one_epoch, evaluate
+from vision_transformer.hybrid_model_utils import read_split_data, train_one_epoch, evaluate
 
 class hybrid_model(nn.Module):
     def __init__(self, VisionTransformer, VGG16):
@@ -216,6 +216,8 @@ def main(args):
         tags = ["train_loss", "train_acc", "val_loss", "val_acc", "learning_rate"]
         tb_writer.add_scalar(tags[0], train_loss, epoch)
         tb_writer.add_scalar(tags[1], train_acc, epoch)
+
+
         tb_writer.add_scalar(tags[2], val_loss, epoch)
         tb_writer.add_scalar(tags[3], val_acc, epoch)
         tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)

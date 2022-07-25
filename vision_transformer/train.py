@@ -10,7 +10,7 @@ from torchvision import transforms
 
 from my_dataset import MyDataSet
 from vit_model import vit_base_patch16_224_in21k as create_model
-from utils import read_split_data, train_one_epoch, evaluate
+from vit_transformer_untils import read_split_data, train_one_epoch, evaluate
 
 
 def main(args):
@@ -44,7 +44,7 @@ def main(args):
                             transform=data_transform["val"])
 
     batch_size = args.batch_size
-    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 8])  # number of workers
+    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 4])  # number of workers
     print('Using {} dataloader workers every process'.format(nw))
     train_loader = torch.utils.data.DataLoader(train_dataset,
                                                batch_size=batch_size,
@@ -109,20 +109,20 @@ def main(args):
         tb_writer.add_scalar(tags[3], val_acc, epoch)
         tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)
 
-        torch.save(model.state_dict(), "./weights/model-{}.pth".format(epoch))
+        torch.save(model, "../vision_transformer/weights/vit_transformer.pkl")
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_classes', type=int, default=2)
-    parser.add_argument('--epochs', type=int, default=10)
-    parser.add_argument('--batch-size', type=int, default=5)
+    parser.add_argument('--epochs', type=int, default=500)
+    parser.add_argument('--batch-size', type=int, default=32)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--lrf', type=float, default=0.01)
 
     # 数据集所在根目录
     parser.add_argument('--data-path', type=str,
-                        default="../simple_dataset/trajectory_mask_0624")
+                        default="C:/Users/YIHANG/PycharmProjects/HTAD_dataset/trajectory_mask")
     parser.add_argument('--model-name', default='', help='create model name')
 
     # 预训练权重路径，如果不想载入就设置为空字符
