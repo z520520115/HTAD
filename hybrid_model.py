@@ -224,6 +224,7 @@ def main(args):
 
         # torch.save(model.state_dict(), "vision_transformer/weights/hybrid_model-{}.pth".format(epoch))
         torch.save(model, "vision_transformer/weights/hybrid_model.pkl")
+
 def dataloader_sort(loader, index, is_label):
     if not is_label:
         return torch.from_numpy(np.array([i[index][0].numpy().tolist() for i in iter(loader)])).float()
