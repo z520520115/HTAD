@@ -2,8 +2,6 @@ import torch
 import torch.nn as nn
 import numpy as np
 from torch.utils.data import TensorDataset, DataLoader
-from vgg16_model import load_cuf_datasets
-from vision_transformer.my_dataset import MyDataSet
 
 class model1(nn.Module):
     def __init__(self):

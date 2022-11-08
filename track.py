@@ -241,8 +241,8 @@ def detect(opt):
                             #     f.write(('%g ' * 2 + '\n') % (frame_idx, id, bbox_left,  # MOT format
                             #                                    bbox_top, bbox_right, bbox_down, -1, -1, -1, i))
                             with open(txt_path + '.txt', 'a') as f:
-                                f.write(('{' + '"frame_idx": %g, ' + '"%g": ' + '[' + '%g, ' + '%g]' + '}' + '\n')
-                                        % (frame_idx, id, x_center, y_center))
+                                f.write(('{' + '"frame_idx": %g, "%g": ' + '[%g, %g],[%g, %g, %g, %g]' +  '}' + '\n')
+                                        % (frame_idx, id, x_center, y_center, bbox_top, bbox_down, bbox_left, bbox_right))
 
 
                         if save_vid or save_crop or show_vid:  # Add bbox to image
@@ -296,7 +296,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--yolo_model', nargs='+', type=str, default='yolov5l.pt', help='model.pt path(s)')
     parser.add_argument('--deep_sort_model', type=str, default='mobilenetv2_x1_0_market1501')
-    parser.add_argument('--source', type=str, default=r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\videos\000040.mp4', help='source')  # file/folder, 0 for webcam
+    parser.add_argument('--source', type=str, default=r'C:\Users\YIHANG\PycharmProjects\HTAD_dataset\test1.mp4', help='source')  # file/folder, 0 for webcam
     parser.add_argument('--output', type=str, default='inference/output', help='output folder')  # output folder
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')
     parser.add_argument('--conf-thres', type=float, default=0.5, help='object confidence threshold')

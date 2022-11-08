@@ -44,7 +44,8 @@ def main(args):
                             transform=data_transform["val"])
 
     batch_size = args.batch_size
-    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 4])  # number of workers
+    # nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 4])  # number of workers
+    nw = 0
     print('Using {} dataloader workers every process'.format(nw))
     train_loader = torch.utils.data.DataLoader(train_dataset,
                                                batch_size=batch_size,
@@ -109,20 +110,20 @@ def main(args):
         tb_writer.add_scalar(tags[3], val_acc, epoch)
         tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)
 
-        torch.save(model, "../vision_transformer/weights/vit_transformer.pkl")
+        torch.save(model, "../vision_transformer/weights/vit_transformer_video_frame.pkl")
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_classes', type=int, default=2)
     parser.add_argument('--epochs', type=int, default=200)
-    parser.add_argument('--batch-size', type=int, default=32)
+    parser.add_argument('--batch-size', type=int, default=64)
     parser.add_argument('--lr', type=float, default=0.001)
-    parser.add_argument('--lrf', type=float, default=0.01)
+    parser.add_argument('--lrf', type=float, default=0)
 
     # 数据集所在根目录
     parser.add_argument('--data-path', type=str,
-                        default="C:/Users/YIHANG/PycharmProjects/HTAD_dataset/trajectory_mask")
+                        default="C:/Users/YIHANG/PycharmProjects/HTAD_dataset/video_frame/train")
     parser.add_argument('--model-name', default='', help='create model name')
 
     # 预训练权重路径，如果不想载入就设置为空字符

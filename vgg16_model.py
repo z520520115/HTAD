@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 import os
+import cv2 as cv
 from torch.utils.data import Dataset, DataLoader
 from torchvision.io import read_image
 from torchvision import transforms
-import __future__
 
 SEED = 1234
 
@@ -27,28 +27,33 @@ class cuf_dataset(Dataset):
         self.transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ConvertImageDtype(torch.float64),
-            # transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
+            transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
         ])
         self.set = []
 
-        for root, dirs, files in os.walk(self.root):
-            target = root.split('\\')[-1]
-            if target in self.all_type:
-                for file in files:
-                    pic = read_image(os.path.join(root, file))
-                    pic = self.transform(pic)
-                    # print(target)
-                    if target == '0':
-                        label = torch.tensor(0)
-                    else:
-                        label = torch.tensor(1)
+        for root, dirs, file1 in os.walk(self.root):
+            # target = root.split('\\')[-1]
+            for i in dirs:
+                if i in self.all_type:
+                    for root2, __, files in os.walk(os.path.join(root,i)):
+                        for file in files:
+                            pic = cv.imread(os.path.join(root2, file))
+                            pic = cv.cvtColor(pic, code=cv.COLOR_BGR2RGB)
+                            pic = transforms.ToTensor()(pic)
+                            # pic = read_image(pic_path)
+                            pic = self.transform(pic)
+                            # print(target)
+                            if i == '0':
+                                label = torch.tensor(0)
+                            else:
+                                label = torch.tensor(1)
 
-                    information = {
-                        'image': pic,
-                        'target': label
-                    }
+                            information = {
+                                'image': pic,
+                                'target': label
+                            }
 
-                    self.set.append(information)
+                            self.set.append(information)
 
     def __getitem__(self, index):
         # print(self.set[index])
@@ -58,23 +63,19 @@ class cuf_dataset(Dataset):
         return len(self.set)
 
 def load_cuf_datasets():
-    tra_train_root = '../simple_dataset/current_fream_0615/train'
-    tra_test_root = '../simple_dataset/current_fream_0615/test'
+    tra_train_root = 'C:/Users/YIHANG/PycharmProjects/HTAD/simple_dataset/current_frame_vgg/train/'
+    tra_test_root = 'C:/Users/YIHANG/PycharmProjects/HTAD/simple_dataset/current_frame_vgg/test/'
 
     all_type = ["0", "1"]
 
     training_set = cuf_dataset(root = tra_train_root, all_type = all_type)
     test_set = cuf_dataset(root = tra_test_root, all_type = all_type)
 
-    train_loader = DataLoader(training_set, batch_size = 5)
-    test_loader = DataLoader(test_set, batch_size = 5)
+    train_loader = DataLoader(training_set, batch_size = 32)
+    test_loader = DataLoader(test_set, batch_size = 32)
 
     print(len(train_loader))
     print(len(test_loader))
-
-    i1, l1 = next(iter(train_loader))
-    print(i1)
-    print(l1)
 
     return train_loader, test_loader
 
@@ -129,7 +130,7 @@ class VGG16(tnn.Module):
         x = self.layer6(x)
         x = self.layer7(x)
         x = self.layer8(x)
-        # print("Vgg第八层shape" + str(x.shape))
+        # print("Vgg第八层shape: " + str(x.shape))
         return vgg16_features, x
 
 def change_dim(pic):
@@ -137,7 +138,7 @@ def change_dim(pic):
     return pic.permute(1, 2, 0)
 
 def main():
-    model1 = VGG16(n_classes=25)
+    model1 = VGG16(n_classes=2)
     train_loader, test_loader = load_cuf_datasets()
 
     optimizer = optim.SGD(model1.parameters(), lr=1e-4, momentum=0.5)
@@ -145,22 +146,22 @@ def main():
 
     loss_all = []
 
-    for epoch in range(2):
+    for epoch in range(100):
         print(f'\n-----------epoch {epoch}-----------')
         loss = train(model1, train_loader, optimizer, loss_fn, epoch=epoch)
         loss_all.append(loss)
         test(model1, test_loader)
 
     plt.plot(loss_all)
-    plt.savefig(f"model_weights/{model1.__class__.__name__}.png")
+    plt.savefig(f"vgg_model_weights/{model1.__class__.__name__}.png")
     plt.show()
     plt.close()
 
-    torch.save(model1.state_dict(), f"model_weights/{model1.__class__.__name__}.pth")
+    torch.save(model1.state_dict(), f"vgg_model_weights/{model1.__class__.__name__}.pth")
     print("Saved PyTorch Model State to model.pth")
 
     model1 = VGG16(n_classes=25)
-    model1.load_state_dict(torch.load(f"model_weights/{model1.__class__.__name__}.pth"))
+    model1.load_state_dict(torch.load(f"vgg_model_weights/{model1.__class__.__name__}.pth"))
     labels = {0: 'No Accident', 1: 'Accident'}
     model1.eval()
     plt.figure(figsize=(8, 4))

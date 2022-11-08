@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 def read_split_data(root: str, val_rate: float = 0.2):
-    random.seed(0)  # 保证随机结果可复现
+    random.seed(4307)  # 保证随机结果可复现
     assert os.path.exists(root), "dataset root: {} does not exist.".format(root)
 
     # 遍历文件夹，一个文件夹对应一个类别
@@ -137,6 +137,8 @@ def train_one_epoch(model, optimizer, data_loader, device, epoch):
                                                                                 accu_loss.item() / (step + 1),
                                                                                 accu_num.item() / sample_num)
 
+        print(" train loss: {}, train accuracy: {}".format(float(accu_loss.item() / (step + 1)), float(accu_num.item()/sample_num)))
+
         if not torch.isfinite(loss):
             print('WARNING: non-finite loss, ending training ', loss)
             sys.exit(1)
@@ -172,5 +174,5 @@ def evaluate(model, data_loader, device, epoch):
         data_loader.desc = "[valid epoch {}] loss: {:.3f}, acc: {:.3f}".format(epoch,
                                                                                accu_loss.item() / (step + 1),
                                                                                accu_num.item() / sample_num)
-
+        # print("valid accuracy: {}".format(float(accu_num.item()/sample_num)))
     return accu_loss.item() / (step + 1), accu_num.item() / sample_num

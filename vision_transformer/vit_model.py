@@ -226,6 +226,12 @@ class VisionTransformer(nn.Module):
         nn.init.trunc_normal_(self.cls_token, std=0.02)
         self.apply(_init_vit_weights)
 
+        # MLP
+        self.linear1 = torch.nn.Linear(2, 2)
+        self.relu = torch.nn.ReLU()
+        self.linear2 = torch.nn.Linear(2, 2)
+        self.relu2 = torch.nn.ReLU()
+
     def forward_features(self, x):
         # [B, C, H, W] -> [B, num_patches, embed_dim]
         x = self.patch_embed(x)  # [B, 196, 768]
@@ -255,6 +261,12 @@ class VisionTransformer(nn.Module):
                 return (x + x_dist) / 2
         else:
             x = self.head(x)
+
+        # x = self.linear1(x)
+        # x = self.relu(x)
+        # x = self.linear2(x)
+        # x = self.relu2(x)
+
         # print("Trans最后一层shape" + str(x.shape))
         return x
 

@@ -3,15 +3,13 @@
 # base ----------------------------------------
 
 matplotlib>=3.2.2
-numpy>=1.18.5
-opencv-python>=4.1.2
-Pillow>=7.1.2
-PyYAML>=5.3.1
-requests>=2.23.0
+numpy>=1.19.5
+opencv-python>=4.5.5.64
+Pillow>=8.4.0
+PyYAML>=6.0
+requests>=2.27.1
 scipy>=1.4.1
-torch>=1.7.0
-torchvision>=0.8.1
-tqdm>=4.41.0
+tqdm>=4.64.0
 
 # plotting ------------------------------------
 
@@ -35,3 +33,9 @@ flake8
 yapf
 isort==4.3.21
 imageio
+
+# hybrid_model--------------------------------
+
+Image
+partial
+argparse

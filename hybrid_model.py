@@ -14,28 +14,39 @@ from torch.utils.tensorboard import SummaryWriter
 from torch.utils.data import TensorDataset, DataLoader
 
 from vgg16_model import VGG16
+from vision_transformer.tnt import TNT
 from vision_transformer.vit_model import VisionTransformer
-from vision_transformer.vit_model import vit_base_patch16_224_in21k as create_model
+from vision_transformer.vit_model import vit_base_patch32_224
 from vision_transformer.hybrid_model_utils import read_split_data, train_one_epoch, evaluate
 
 class hybrid_model(nn.Module):
-    def __init__(self, VisionTransformer, VGG16):
+    def __init__(self, Transformer, VGG16):
         super(hybrid_model, self).__init__()
-        self.model1 = VisionTransformer()
+        self.model1 = Transformer()
         self.linear1 = nn.Linear(1000, 500)
         self.model2 = VGG16()
         self.linear2 = nn.Linear(1000, 500)
         self.linear3 = nn.Linear(1000, 2)
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(0.1)
         # self.model1_linear = nn.Linear(100 * 10, 25)
 
     def forward(self, x1, x2):
         x1 = self.model1(x1)
         x1 = self.linear1(x1)
+        x1 = self.dropout(x1)
+
         _, x2 = self.model2(x2)
         x2 = self.linear2(x2)
+        x2 = self.dropout(x2)
+
         x3 = torch.cat((x1, x2), dim=1)
         x3 = self.linear3(x3)
-        x3 = torch.softmax(x3, dim=-1)
+        x3 = self.relu(x3)
+        x3 = self.dropout(x3)
+
+        x3 = torch.softmax(x3, dim=-1) #softmax + cross
+        # x3 = torch.sigmoid(x3, dim=-1) simoid+BCEloss
         return x3
 
 class VitDataSet(Dataset):
@@ -106,90 +117,89 @@ def main(args):
     if os.path.exists("./weights") is False:
         os.makedirs("./weights")
 
-    tb_writer = SummaryWriter()
+    tb_writer = SummaryWriter("./vision_transformer/runs_hybrid/")
 
     train_tras_path, train_tras_label, val_tras_path, val_tras_label = read_split_data(
-        r"C:/Users/YIHANG/PycharmProjects/HTAD_dataset/trajectory_mask")
+        r"C:/Users/YIHANG/PycharmProjects/HTAD_dataset/trajectory_mask_192")
     train_imgs_path, train_imgs_label, val_imgs_path, val_imgs_label = read_split_data(
         r"C:/Users/YIHANG/PycharmProjects/HTAD_dataset/current_frame")
 
-    Vit_data_transform = {
-        "train": transforms.Compose([transforms.RandomResizedCrop(224),
-                                     transforms.RandomHorizontalFlip(),
-                                     transforms.ToTensor(),
-                                     transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])]),
-        "val": transforms.Compose([transforms.Resize(256),
-                                   transforms.CenterCrop(224),
-                                   transforms.ToTensor(),
-                                   transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])])}
-
-    Vgg_data_transform = {
-        "train": transforms.Compose([transforms.Resize((224, 224)),
+    data_transform = {
+        "train": transforms.Compose([transforms.Resize((256)),
+                                     transforms.CenterCrop(224),
                                      # transforms.ConvertImageDtype(torch.float64)]),
-                                    transforms.ToTensor()]),
-        "val": transforms.Compose([transforms.Resize((224, 224)),
+                                     transforms.ToTensor(),
+                                     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])]),
+        "val": transforms.Compose([transforms.Resize((256)),
+                                   transforms.CenterCrop(224),
                                    # transforms.ConvertImageDtype(torch.float64)]),
-                                   transforms.ToTensor()])}
+                                   transforms.ToTensor(),
+                                   transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])}
     # 实例化Vit数据集
     Vit_train_dataset = VitDataSet(images_path=train_tras_path,
-                              images_class=train_tras_label,
-                              transform=Vit_data_transform["train"])
+                                   images_class=train_tras_label,
+                                   transform=data_transform["train"])
     Vit_val_dataset = VitDataSet(images_path=val_tras_path,
-                            images_class=val_tras_label,
-                            transform=Vit_data_transform["val"])
+                                 images_class=val_tras_label,
+                                 transform=data_transform["val"])
 
     # 实例化Vgg数据集
     Vgg_train_dataset = VggDataSet(images_path=train_imgs_path,
-                              images_class=train_imgs_label,
-                              transform=Vgg_data_transform["train"])
+                                   images_class=train_imgs_label,
+                                   transform=data_transform["train"])
     Vgg_val_dataset = VggDataSet(images_path=val_tras_path,
                                  images_class=val_imgs_label,
-                                 transform=Vgg_data_transform["val"])
+                                 transform=data_transform["val"])
 
     batch_size = args.batch_size
-    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 4])  # number of workers
+    # nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 4])  # number of workers
+    nw = 0
     print('Using {} dataloader workers every process'.format(nw))
 
     Vit_train_loader = DataLoader(Vit_train_dataset,
                                   batch_size=batch_size,
                                   pin_memory=True,
                                   num_workers=nw,
-                                  )#collate_fn=Vit_train_dataset.collate_fn)
+                                  )  # collate_fn=Vit_train_dataset.collate_fn)
 
     Vit_val_loader = DataLoader(Vit_val_dataset,
                                 batch_size=batch_size,
                                 pin_memory=True,
                                 num_workers=nw,
-                                )#collate_fn=Vit_val_dataset.collate_fn)
+                                )  # collate_fn=Vit_val_dataset.collate_fn)
 
     Vgg_train_loader = DataLoader(Vgg_train_dataset,
                                   batch_size=batch_size,
                                   pin_memory=True,
                                   num_workers=nw,
-                                  )#collate_fn=Vgg_train_dataset.collate_fn)
+                                  )  # collate_fn=Vgg_train_dataset.collate_fn)
 
     Vgg_val_loader = DataLoader(Vgg_val_dataset,
                                 batch_size=batch_size,
                                 pin_memory=True,
                                 num_workers=nw,
-                                )#collate_fn=Vgg_val_dataset.collate_fn)
+                                )  # collate_fn=Vgg_val_dataset.collate_fn)
 
-
-    label, imgs, tras = map(dataloader_sort, [Vgg_train_loader, Vgg_train_loader, Vit_train_loader], [1, 0, 0], [True, False, False])
-    label_v, imgs_v, tras_v = map(dataloader_sort, [Vgg_val_loader, Vgg_val_loader, Vit_val_loader], [1, 0, 0], [True, False, False])
+    label, imgs, tras = map(dataloader_sort, [Vgg_train_loader, Vgg_train_loader, Vit_train_loader], [1, 0, 0],
+                            [True, False, False])
+    label_v, imgs_v, tras_v = map(dataloader_sort, [Vgg_val_loader, Vgg_val_loader, Vit_val_loader], [1, 0, 0],
+                                  [True, False, False])
 
     # 整合两种数据集 DataLoader[0]为轨迹, [1]当前帧, [2]标签 (数据集做好的情况下两者标签应为一致)
     train_loader = DataLoader(TensorDataset(tras, imgs, label),
                               batch_size=batch_size,
                               pin_memory=True,
-                              num_workers=nw)
+                              num_workers=nw,
+                              shuffle=True)
 
     val_loader = DataLoader(TensorDataset(tras_v, imgs_v, label_v),
-                              batch_size=batch_size,
-                              pin_memory=True,
-                              num_workers=nw)
+                            batch_size=batch_size,
+                            pin_memory=True,
+                            num_workers=nw,
+                            shuffle=True)
 
     # VisionTransformer = create_model(num_classes=2, has_logits=False).to(device)
+    VisionTransformer = vit_base_patch32_224
     model = hybrid_model(VisionTransformer, VGG16)
 
     pg = [p for p in model.parameters() if p.requires_grad]
@@ -198,6 +208,7 @@ def main(args):
     scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)
 
     for epoch in range(args.epochs):
+
         # train
         train_loss, train_acc = train_one_epoch(model=model,
                                                 optimizer=optimizer,
@@ -216,8 +227,6 @@ def main(args):
         tags = ["train_loss", "train_acc", "val_loss", "val_acc", "learning_rate"]
         tb_writer.add_scalar(tags[0], train_loss, epoch)
         tb_writer.add_scalar(tags[1], train_acc, epoch)
-
-
         tb_writer.add_scalar(tags[2], val_loss, epoch)
         tb_writer.add_scalar(tags[3], val_acc, epoch)
         tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)
@@ -234,17 +243,17 @@ def dataloader_sort(loader, index, is_label):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_classes', type=int, default=2)
-    parser.add_argument('--epochs', type=int, default=500)
-    parser.add_argument('--batch-size', type=int, default=32)
-    parser.add_argument('--lr', type=float, default=0.001)
-    parser.add_argument('--lrf', type=float, default=0.01)
+    parser.add_argument('--epochs', type=int, default=200)
+    parser.add_argument('--batch-size', type=int, default=256)
+    parser.add_argument('--lr', type=float, default=0.0001)
+    parser.add_argument('--lrf', type=float, default=0.00001)
 
     # 数据集所在根目录
     parser.add_argument('--data-path', type=str, default="")
     parser.add_argument('--model-name', default='', help='create model name')
 
     # 预训练权重路径，如果不想载入就设置为空字符
-    parser.add_argument('--weights', type=str, default='', help='initial weights path')
+    parser.add_argument('--weights', type=str, default='vision_transformer/vit_base_patch32_224.pth', help='initial weights path')
     # 是否冻结权重
     parser.add_argument('--freeze-layers', type=bool, default=True)
     parser.add_argument('--device', default='cuda:0', help='device id (i.e. 0 or 0,1 or cpu)')
